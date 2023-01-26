@@ -1,0 +1,15 @@
+<h1>Directivas estructurales</h1>
+
+<ul>
+    <li *ngFor="let alumno of listaAlumnos">
+        <div>
+            <span [ngClass]="{ 'mayor': alumno.edad >= 30, 'menor': alumno.edad < 30, 'desactivado': !alumno.activo }">
+                {{ alumno.nombre }}
+            </span>
+            <span *ngIf="alumno.sexo === 'M'" class="icono"> &#9794; </span>
+            <span *ngIf="alumno.sexo === 'F'" class="icono"> &#9792; </span>
+            <button *ngIf="alumno.activo">Activar</button>
+        </div>
+        <span>{{ alumno | json }}</span>
+    </li>
+</ul>
